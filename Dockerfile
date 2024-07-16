@@ -1,10 +1,17 @@
-FROM openjdk:17-oracle
+FROM maven:3.8.4-openjdk-17-slim AS build
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the JAR file into the container
-COPY target/TgBotMouserLink-1.0-SNAPSHOT.jar /app/TgBotMouserLink-1.0-SNAPSHOT.jar
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Define the command to run your application
+COPY src ./src
+RUN mvn package -DskipTests
+
+FROM openjdk:17-oracle
+
+WORKDIR /app
+
+COPY --from=build /app/target/TgBotMouserLink-1.0-SNAPSHOT.jar .
+
 CMD ["java", "-jar", "TgBotMouserLink-1.0-SNAPSHOT.jar"]
