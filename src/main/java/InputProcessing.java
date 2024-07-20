@@ -36,7 +36,7 @@ public class InputProcessing {
                 String url = generateUrl(capacitance, caseCode, tolerance, voltage, dielectric, caseInfo);
                 generatedUrls.add(url);
             } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Ошибка генерации ссылки. Возможно вы ввели некорректные данные.", e);
             }
 
 

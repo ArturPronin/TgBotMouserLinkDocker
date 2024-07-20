@@ -16,6 +16,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.github.szrnka-peter</groupId>
+            <artifactId>firebase-hosting-api-java</artifactId>
+            <version>0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vdurmont</groupId>
+            <artifactId>emoji-java</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots-longpolling</artifactId>
             <version>7.2.1</version>
